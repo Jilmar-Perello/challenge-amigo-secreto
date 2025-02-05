@@ -2,14 +2,36 @@
 let amigos = [];
 
 function agregarAmigo(){
-    let amigo = document.getElementById('amigo').value;
+    let input = document.getElementById('amigo');
+    let amigo = input.value;
 
     if (amigo==="") {
         alert("Por favor, inserte un nombre.")
     } else {
         amigos.push(amigo);
         console.log(amigos);
-        document.getElementById('amigo').value = "";
+        input.value="";
+    }
+
+    let listaAmigos = document.getElementById('listaAmigos');
+    listaAmigos.innerHTML="";
+
+    for (let i = 0; i < amigos.length; i++) {
+        listaAmigos.innerHTML+=`<li>${amigos[i]}</li>`
+    }
+    
+}
+
+function sortearAmigo() {
+
+    if (amigos.length>1) {
+        let numeroAmigo = Math.floor(Math.random()*amigos.length);
+        console.log(numeroAmigo);
+
+        let resultado = document.getElementById('resultado');
+        resultado.innerHTML=`<li>El amigo elegido es: ${amigos[numeroAmigo]}</li>`
+    } else {
+        alert("Debes agregar al menos 2 amigos para sortear");
     }
 
     
