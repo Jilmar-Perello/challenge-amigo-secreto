@@ -5,7 +5,7 @@ function agregarAmigo(){
     let input = document.getElementById('amigo');
     let amigo = input.value;
 
-    if (amigo==="") {
+    if (input.value==="") {
         alert("Por favor, inserte un nombre.")
     } else {
         amigos.push(amigo);
